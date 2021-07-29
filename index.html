@@ -1,0 +1,253 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page pageEncoding="UTF-8" %>
+<!DOCTYPE HTML>
+<!--
+	@author: Cristina M. Iosifescu Enescu, 
+	project: Dream Cartography
+	location: Zurich, Switzerland
+	
+	initial HTML framework: Snapshot by TEMPLATED, templated.co @templatedco, Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html lang="en">
+	<head>
+		<title>Dream Cartography - Re-Visiualizing Your Dreams</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="author" content="Cristina M. Iosifescu Enescu"/>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+	</head>
+	<body onload="verifyMapTab()">
+		<div class="page-wrap">
+
+			<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a href="index.jsp" class="active"><span class="icon fa-home"></span></a></li>
+						<!--<li><a href="uploadadream.html"><span class="icon fa-puzzle-piece"></span></a></li>-->
+						<li><a href="mapgallery.html"><span class="icon fa-map"></span></a></li>
+						<li><a href="gallery.html"><span class="icon fa-camera-retro"></span></a></li>
+						<li><a href="generic.html"><span class="icon fa-file-text-o"></span></a></li>
+						
+						<img style="position: fixed; bottom: 2.5em; width: 3.8em" src="images/roza_mov_w_buffer_mica.png">
+					</ul>
+				</nav>
+
+			<!-- Main -->
+				<section id="main">
+
+					<!-- Banner -->
+						<section id="banner">
+							<div class="inner">
+								<h1>Dream Cartography</h1>
+								<p>the scientific project for mapping dreams </p>
+								<ul id="actionlogin" class="actions" >
+									<li><a href="register.html" class="button">Register as Dreamer</a></li>
+									<li>continue as guest</li> 
+									<li>or sign in:
+								<form  class="alt" action="index.jsp" onSubmit="feedbackLogin()" method="POST">
+
+								<div class="tight">
+									<input name="email" id="email" class="alt" type="email" placeholder="e-mail*" required>
+									<input name="password" id="password" class="alt" type="password" placeholder="password*" required>
+								<ul class="actions">
+									<li><input value="Login" class="button" type="submit"></li>
+								</ul></div>
+								<div class="tight h-1"><a href="forgotten_password.html" class="iinfo textr">I forgot my password...</a></div>
+								</form>
+								
+									</li>
+								</ul>
+								<p id="mess_feedback"></p>
+								
+									
+								
+							</div>
+							
+						</section>
+
+					
+
+					<!-- Contact -->
+						<section id="contact">
+							
+							<!-- Form -->
+								<div class="column" id="easyupload">
+									<h3 id="uploadadream">Upload a dream (as guest)</h3>
+									<form action="process.jsp" method="post" accept-charset="UTF-8">
+										<div class="field half first">
+											<label for="dreamtitle">Dream Title <span title="A few words to describe the dream" class="icon fa-info-circle"></span></label>
+											<input name="dreamtitle" id="dreamtitle" type="text" placeholder="Title">
+										</div>
+										<div class="field">
+											<label for="dreamreport">Dream * <span title="Describe your dream here: Where were you? With whom? What happened?" class="icon fa-info-circle"></span></label>
+											<textarea name="dreamreport" id="dreamreport" rows="6" placeholder="Describe your dream here: Where were you? With whom? What happened?" minlength="30" required></textarea>
+										</div>
+										<div class="field">
+											<label for="dreamrelated">Thoughts about your dream / dream sources * <span title="What did the different dream elements make you think about? What did you do yesterday that could have inspired the dream?" class="icon fa-info-circle"></span></label>
+											<textarea name="dreamrelated" id="dreamrelated" rows="6" placeholder="What did the different dream elements make you think about? What did you do yesterday that could have inspired the dream?" required></textarea>
+										</div>
+										<div class="field half first">
+											<label for="realplace">Place * <span title="City, State. Where you were sleeping." class="icon fa-info-circle"></span></label>
+											<input name="realplace" id="realplace" type="text" placeholder="City, State. Where you were sleeping."  pattern=".{3,}" required title="Please write here the location you were sleeping at">
+										</div>
+										<div class="field half">
+											<label for="date">Date * <span title="dd.mm.yyyy. The date when you had the dream." class="icon fa-info-circle"></span></label>
+											<input name="date" id="date" value="<%=today%>" type="text" placeholder="dd.mm.yyyy. When you had the dream." pattern="[0-9.]{4,10}" required title="yyyy or mm.yyyy or dd.mm.yyyy">
+										</div>
+										<div class="field half first">
+											<label for="name">Your (Nick-) Name *</label>
+											<input name="name" id="name" type="text" placeholder="Name">
+										</div>
+										<div class="field half">
+											<label for="email_opt">Email <span title="if you want us to contact you, or for creating an account with us" class="icon fa-info-circle"></span></label>
+											<input name="email_opt" id="email_opt" type="email" placeholder="Email">
+										</div>
+										<!--<div id="dreamdetails">
+											<input type="checkbox" name="details" id="details"><label for="details">I could give you more details about this dream (answer some questions about the dream setting) </input>
+										</div>-->
+										<div id="publicdream">
+											<input type="checkbox" name="public" id="public" class="specialcb"><label for="public">I agree that this dream is published here, on <a href="https://dreams.ethz.ch/" target="_blank">https://dreams.ethz.ch/</a>.</label></input>
+										</div>
+										<div id="termsofuse">
+											<input type="checkbox" name="terms" id="terms" class="specialcb" required><label for="terms">I have read and accept the <a href="terms.html" target="_blank"> Terms of Use </a></label></input>
+										</div>
+										<div class="g-recaptcha" data-sitekey="6LcquW4UAAAAAOxtmP7o-q2werOPZL4pLpYYEGUs" data-callback="recaptchaCallback"></div>
+										<ul class="actions">
+											<li><input id="btnSubmit" value="Send Dream" class="button" type="submit" disabled></li>
+										</ul>
+									</form>
+								</div>
+							
+							<!-- Social -->
+								<div class="social column">
+									<h3>About Dream Cartography</h3>
+									<p>Through Dream Cartography we strive for the modeling, documenting, and graphically depicting the dream space and the relevant psychological aspects of dreams in a meaningful but abstracted way. 
+									Our plan is to bring cartography and psychology together and get new insights, through cartography, into the subject of dreams. Cartography serves here as an instrument that allows explorative data analysis, by offering valuable and aesthetic visualizations.  </p>
+									<p>The memory of a dream tends to disappear, if no description of it is made shortly after the dream experience. Therefore, for studying and understanding dreams, we need at least a dream description. But graphical representations of a dream can add clarity to its description, since the spatial representation facilitates grasping and comparing data. This helps in equal measure dream researches, psychotherapists and persons interested in their dreams to establish correspondences between dream space and other dream components.</p>
+									<p>The dream space is fundamentally different from the real space, especially because one cannot consciously visit dream place again, to survey it and account for missing information. From our point of view, this poses a cartographic challenge, which is enhanced by the setting construction in dreams. A dream place may be defined geographically, but may be also a mixed setting (where features of more than one place, real or fictive, are combined), condensed (as mixed, but embedding also personal experiences and thoughts), distorted (where the spatial proportions are different than in reality), uncertain or totally invented settings. For the visualization of the dream settings we desire to use all dream elements which are related to space, probably along to some predefined schemas and symbols, which can enhance the geographical information named as such (and visualized using open geodata, such as openstreetmaps). Depending on the characteristics of the dream settings, we may also use methods for uncertainty visualization. </p>
+									<p>We cordially invite you to upload a dream and create a map for it using the tools provided in the portal Do-It-Yourself Dream Map (experimental version). Please come back soon and check the updates of the mapping platform, edit a dream map (using the URL with the dream id), check for new dreams and new dream maps, for new pictures. Please consider that this is work in progress (last update: July 2018).</p>
+									<p>The research work is performed in the frame of an ambitious dissertation project at the <a href="http://www.ikg.ethz.ch/en/" target="_blank">ETH Zurich, Institute of Cartography and Geoinformation (IKG)</a>, Chair of Cartography (Prof. Lorenz Hurni). <a title="Go to Cristina's Web page" href="http://dreams.ethz.ch/cristina/" target="_blank"> Cristina M. Iosifescu Enescu</a> started her PhD in January 2015 and is expected to promovate in the beginning of 2019. </p>
+									<p></p>
+									<h3>Get in Touch</h3>
+									<ul class="icons">
+										<li><a title="Send us an e-mail" href="mailto:dreams@karto.baug.ethz.ch" class="icon fa-envelope"><span class="label">E-mail</span></a></li>
+										<li><a title="See the Dream Cartography project on ResearchGate" href="https://www.researchgate.net/project/Dream-Cartography" target="_blank" class="icon fa-university"><span class="label">ResearchGate</span></a></li>
+										<li><a title="Check Cristina's profile on LinkedIn" href="https://www.linkedin.com/in/cristina-m-iosifescu-enescu-7244bb13a/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									</ul>
+								</div>
+
+						</section>
+						
+					<!-- Gallery -->
+						<section id="galleries">
+
+							<!-- Map Gallery -->
+								<div class="gallery">
+									<header class="special">
+										<h2>a map of a dream setting?</h2>
+									</header>
+									<div class="content">
+											<div class="media all birdseye 3D">
+												<a href="maps/fulls/go_zh_uslar.jpg"><img src="maps/thumbs/t_go_zh_uslar.jpg" alt="" title="I lived in a university town, which bore combined features of G&ouml;ttingen and Zurich." /></a>
+											</div>
+											<div class="media all cityplan">
+												<a href="maps/fulls/go_zh_cityplan_uslar.jpg"><img src="maps/thumbs/t_go_zh_cityplan_uslar.jpg" alt="" title="I lived in a university town, which bore combined features of G&ouml;ttingen and Zurich." /></a>
+											</div>
+											<div class="media all 3D">
+												<a href="maps/fulls/sanssouci_uslar.jpg"><img src="maps/thumbs/t_sanssouci_uslar.jpg" alt="" title="I lived in a house that was right on the edge of a rocky slope..." /></a>
+											</div>											
+											<div class="media all birdseye 3D">
+												<a href="maps/fulls/zh_bu_iosifescu12.jpg"><img src="maps/thumbs/t_zh_bu_iosifescu12.jpg" alt="" title="I worked in Zurich and in the evening I took the tram to go home to my parents in Bucharest" /></a>
+											</div>
+									</div>
+									<footer>
+										<a href="mapgallery.html" class="button big">Dream Maps Gallery</a>
+									</footer>
+								</div>
+								
+								<!-- Photo Gallery -->
+								<div class="main3 gallery">
+									<header class="special">
+										<h2>a dream setting in a picture?</h2>
+									</header>
+									<div class="content">
+										<div class="media all outside castle">
+												<a href="images/fulls/01.jpg"><img src="images/thumbs/01.jpg" alt="" title="I felt so small, standing there, near this old castle..." /></a>
+											</div>
+											<div class="media all outside road forest">
+												<a href="images/fulls/10.jpg"><img src="images/thumbs/10.jpg" alt="" title="I was driving through the forest..." /></a>
+											</div>
+											<div class="media all outside water">
+												<a href="images/fulls/03.jpg"><img src="images/thumbs/03.jpg" alt="" title="We were on a boat, watching the sunset" /></a>
+											</div>
+											<div class="media all outside road">
+												<a href="images/fulls/07.jpg"><img src="images/thumbs/07.jpg" alt="" title="I took the Pollybahn to go to the ETH." /></a>
+											</div>
+									</div>
+									<footer>
+										<a href="gallery.html" class="button big">Photo Gallery</a>
+									</footer>
+								</div>
+						</section>
+						
+					<!-- Footer -->
+						<footer id="footer">
+							<div class="copyright">
+								&copy; 2019-2021 Cristina M. Iosifescu Enescu, Zurich. All rights reserved. Design based on: <a href="https://templated.co/">TEMPLATED</a>.
+							</div>
+						</footer>
+				</section>
+		</div>
+
+		<!-- Scripts -->
+			<script src="scripts/generic.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+<script>
+var feedback = "<%=mess_feedback%>";
+document.getElementById("mess_feedback").innerHTML = feedback;
+if (feedback.indexOf("Welcome")>=0) {
+	var username='<%=username%>'
+	document.getElementById("actionlogin").style.display="none";
+	document.getElementById("uploadadream").innerHTML="Upload a dream (as "+username+")";
+}
+
+function recaptchaCallback() {
+        var btnSubmit = document.getElementById("btnSubmit");
+        if ( btnSubmit.disabled ) {
+            btnSubmit.disabled=false;
+        }
+    }
+/*function feedbackLogin() {
+var separationstring = "hereidomybreak";
+var param="email="+document.getElementById("email").value+"&password="+document.getElementById("password").value;
+var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+		var arr = this.responseText.split(separationstring);
+		if (arr[0]=="success") {
+			var username = arr[1];
+			var userid= arr[2];
+			window.location="index.jsp?userid="+userid+"&username="+username;
+			
+			
+			document.getElementById("feedback").innerHTML = "Welcome, "+username+"!"; 
+		}
+		else if (this.responseText=="failure") {
+			document.getElementById("feedback").innerHTML = "Login failed";
+		}
+    }
+  };
+
+ xhttp.open("POST", "https://dreams.ethz.ch/textpro/LoginVerif", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(param);
+}*/
+</script>
+	</body>
+</html>

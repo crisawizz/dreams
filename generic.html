@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<!--
+	author: Cristina M. Iosifescu Enescu, 
+	project: Dream Cartography
+	location: Institute of Cartography and Geoinformation, ETH Zurich, Switzerland
+	
+	initial HTML framework: Snapshot by TEMPLATED, templated.co @templatedco, Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Dream Cartography - Generic</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="author" content="Cristina M. Iosifescu Enescu"/>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script type="text/javascript" src="scripts/generic.js"></script>
+	</head>
+	<body onload="initAccordion(); verifyMapTab();">
+		<div class="page-wrap">
+
+			<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html"><span class="icon fa-home"></span></a></li>
+						<!--<li><a href="uploadadream.html"><span class="icon fa-puzzle-piece"></span></a></li>-->
+						<li><a href="mapgallery.html"><span class="icon fa-map"></span></a></li>
+						<li><a href="gallery.html"><span class="icon fa-camera-retro"></span></a></li>
+						<li><a href="generic.html" class="active"><span class="icon fa-file-text-o"></span></a></li>
+						
+						<img style="position: fixed; bottom: 2.5em; width: 3.8em" src="images/roza_mov_w_buffer_mica.png">
+					</ul>
+				</nav>
+
+			<!-- Main -->
+				<section id="main">
+
+					<!-- Header -->
+						<header id="header">
+							<div>...get an insight...</div>
+						</header>
+
+					<!-- Section -->
+						<section>
+							<div class="inner">
+								<header>
+									<h1>About Dream Cartography</h1>
+								</header>
+								
+								<p>Through Dream Cartography we mean modeling, documenting and graphically depicting the dream space and relevant psychological aspects of dreams in a meaningful but abstracted way.</p>
+								<h3>What kind of dreams are you working with?</h3>
+								<p>Dreaming is defined as "a state of consciousness characterized by internally-generated sensory, cognitive and emotional experiences" (Desseilles, Dang-Vu, Sterpenich, & Schwartz, 2011) 
+								which occur usually during sleep. We are interested in all kinds of dreams and you are kindly invited to join us and <a href="index.html#easyupload"> write down your dream </a> on our platform! We will try to create dream maps out of it, to represent it graphically and we will send you a note when this happens. You can also regularly check out our Web site for new <a href="mapgallery.html">dream maps</a>.
+								If you have any questions, please <a href="mailto:dreams@karto.baug.ethz.ch">contact us</a>.</p>
+								<h3>How shall the dream space be represented?</h3>
+								<p>Dream space presents a cartographic challenge because of its particularities: it's not only geographical, but also mixed (more places in one), 
+								condensed (as mixed, but embedding also personal experiences and thoughts), distorted (spatial proportions different than in reality), uncertain or totally invented. 
+								The idea is to use all dream elements which are related to space and maybe a choice of predefined schemas, along to open geodata (such as openstreetmaps) 
+								and/or methods for uncertainty visualization. </p>
+							</div>	
+						</section>
+								<section class="columns double">
+									<div id="howtorecordadream" class="main2 column">
+										<span class="image left special"><img src="images/pic01.jpg" alt="" /></span>
+										<h3>How to record a dream</h3>
+										<p>
+											People don't remember every dream. Mostly the salient dreams make it through. But there are techniques for starting to remember more dreams. An easy way to begin is to choose a day without stress and say to yourself, before going to bed, that you'll remember the dream when you wake up. If you remember a dream in the morning, try to re-visualize and re-live the dream before you open your eyes. This will help you remember more details. Afterwards you should write down or record your dream right away, because the memory of it diminishes even after a few minutes.
+										</p>
+										<h3>8 Ways to better remember a dream</h3>
+										In advance:<br/>
+										<button class="accordion alt"><b>1.</b> Prepare recording means </button>
+										<div class="accpanel">
+											<p>Prepare a computer file or a paper notebook if preferred, in order to write down the dream reports. Prepare also an audio recording means (mobile phone or audio recorder).</p>
+										</div>
+										<button class="accordion alt"><b>2.</b> Choose an unstressful morning </button>
+										<div class="accpanel">
+											<p>Decide at which date you will attempt to recall and report a dream:  a morning without time pressure, for example during weekends or holidays.</p>
+										</div>
+										<button class="accordion alt"><b>3.</b> Think about it in advance </button>
+										<div class="accpanel">
+											<p>The evening before that date, when going to bed, give yourself the instruction: When I wake up tomorrow morning, I won't move and I will immediately ask myself the question: What was on my mind just before I woke up?</p>
+										</div>
+										In the morning:<br/>
+										<button class="accordion alt"><b>4.</b> Rehearse the dream </button>
+										<div class="accpanel">
+											<p>Upon awakening, if a dream scene is recalled, rehearse it (visualize and feel the other impressions of that dream scene again). This and the following instruction are to be completed before moving, getting up and switching the light on.</p>
+										</div>
+										<button class="accordion alt"><b>5.</b> More dream scenes? </button>
+										<div class="accpanel">
+											<p>Then try to recapture what was happening before, or possibly after the first scene recalled and rehearse each of these other scenes. Eventually "re-live" all the remembered scenes of the dream, following the order of succession of the dream events, which is usually very clearly memorized.</p>
+										</div>
+										<button class="accordion alt"><b>6.</b> Audio-recording </button>
+										<div class="accpanel">
+											<p>Only after that recapitulation, switch the light on, switch the recorder on and record an oral description of the dream. You know that questions will be asked to you about the setting of the dream, therefore pay attention to its features (or to the fact that it was not clearly represented in the dream).</p>
+										</div>
+										<button class="accordion alt"><b>7.</b> Write the dream report </button>
+										<div class="accpanel">
+											<p>Later on in the morning, write down the transcription of your oral report, as close as possible to its oral version.</p>
+										</div>
+										<button class="accordion alt"><b>8.</b> Answer a Questionnaire </button>
+										<div class="accpanel">
+											<p>Fill in the given questionnaire on dream settings for each dream scene.</p>
+										</div>
+									</div>
+									<div id="questionnairedreamscene" class="main3 column">
+										<span class="image left special"><img src="images/pic02.jpg" alt=""/></span>
+										<h3>What dream elements are important?</h3>
+										<p>
+											All! The more you can remember, the best. We, as cartographers, are interested more in the dream setting. Therefore, we put up a questionnaire, which focuses on the dream location. You can fill up after writing down your dream. This will help you remembering more, because it addresses specific questions, which can trigger different memories about the dream. Important for the dream map (and for you) are also the possible dream sources, the associations you make, or what the different dream elements made you think about. And what you did  the day or the week before the dream, which may have influenced the dream content.
+										</p>
+										<h3>Questionnaire for a dream scene</h3>
+										<!--<a href="uploadadream.html"> Upload a dream and fill in this questionnaire online.</a>-->
+										<ol type="1">
+											<li>Is the dream location visualized?</li>
+											<li>Is the dream location identified?</li>
+											<li>Is the dream location familiar?</li>
+											<li>Is the geographical situation specified? If yes, what is it?</li>
+											<li>If visualized: What was clearly distinct / vague / fuzzy in the setting?</li>
+											<li>If clearly visualized: is there a condensation of features of two or more places? If yes, which ones?</li>
+											<li>Does the location correspond to a specific known location?</li>
+											<li>Does the location enter a specific category such as built up, countryside, fantasy or science fiction?</li>
+											<li>Does it enter a subcategory such as street, in front of a shop, etc.?</li>
+											<li>Could you orient yourself easy in the setting?</li>
+											<li>What memories (if any) come to your mind about such a location?</li>
+											<li>If the location is indeterminate, can you think of elements that could nevertheless materialize the dream setting? (e.g. spoken language, signposts)</li>
+											<li>Was the dream scene emotionally neutral, pleasant or unpleasant?</li>
+											<li>Were you trying to achieve or avoid something in the dream?</li>
+											<li>Did you have the feeling to succeed or fail in something? If yes, in what?</li>
+											<li>What senses did you use in the dream? (vision, hearing, touch, smell)</li>
+										</ol>
+										
+									</div>
+								</section>
+							
+							
+						
+
+					<!-- About Research -->
+						<section id="contact">
+							<!-- Social -->
+								<div class="main1 column">
+									<h3>About the research project</h3>
+									<p>The Dream Cartography research project resides at the ETH Zurich, Switzerland, <br/> 
+									Institute of Cartography and Geoinformation, <a href="http://www.karto.ethz.ch/">Chair of Cartography</a>.<br/><br/>
+
+									<b>Coordination</b>: Prof. Dr. Lorenz Hurni, Cartography <br/>
+									<b>PhD Student</b>: <a href="https://n.ethz.ch/~ciosifes/">Cristina M. Iosifescu Enescu</a>, Dipl.-Eng. Geodesy, MSc. Psychology, <a href="mailto:ciosifescu@ethz.ch">contact person</a> <br/>
+									<b>Collaboration</b>: Prof. hon. Dr. Jacques Montangero, Psychological Sciences<br/>
+									<b>Funding</b>: <a href="http://www.snf.ch" target="_blank">Swiss National Science Foundation</a> </p>
+
+									<ul class="icons">
+										<li><a href="http://www.ethz.ch/en" target="_blank"><img id="eth_logo" style="width: 15em" alt="ETH Zurich" src="assets/logo/eth_logo_kurz_pos_290.png"/></a></li>
+										<li><a href="http://www.ikg.ethz.ch/" target="_blank"><img id="ikg_logo" style="width: 11em" alt="Institute of Cartography and Geoinformation" src="assets/logo/LogoIKG_en_200.png"/></a></li>
+										<li><a href="http://www.snf.ch" target="_blank"><img id="snf_logo" style="width: 17em" alt="Swiss National Science Foundation" src="assets/logo/SNF_logo_en.gif"/></a></li>
+									</ul>
+								</div>
+
+							<!-- Form -->
+								<div class="main1 column">
+									<h3>Publications</h3>
+									<p> Iosifescu Enescu, C.M. & Hurni, L. (2018). <i>Pinpointing Dream Settings onto Place Cookies</i>. Proceedings of the Platial18 Workshop, Heidelberg, Germany. <a href="https://doi.org/10.5281/zenodo.1472739" target="_blank">Link to the Proceedings</a> or <a href="../publications/IosifescuEnescuCM_Hurni_2018_PlaceCookie_AOM.pdf">Download the Author's Original Manuscript</a></p>
+									<p> Iosifescu Enescu, C.M. & Hurni, L. (2017). <i>Fictional volunteered geographic information in Dream Cartography</i>. International Journal of Cartography, 3(1), 76-87. <a href="http://www.tandfonline.com/doi/full/10.1080/23729333.2017.1301627" target="_blank">Link to the Journal</a> or <a href="../publications/IosifescuEnescuCM_Hurni_2017_AOM.pdf">Download the Author's Original Manuscript</a></p>
+									<p> Iosifescu Enescu, C.M., Montangero, J., & Hurni, L. (2015). <i>Toward Dream Cartography: Mapping Dream Space and Content</i>. Cartographica: The International Journal for Geographic Information and Geovisualization, 50(4), 224-237. <a href="http://www.utpjournals.press/doi/abs/10.3138/cart.50.4.3137" target="_blank">Link to the Journal</a> or <a href="../publications/IosifescuEnescuCM_Montangero_Hurni_2015_AOM.pdf">Download the Author's Original Manuscript</a></p>
+								</div>
+
+						</section>
+					
+					<!-- Footer -->
+						<footer id="footer">
+							<div class="copyright">
+								&copy; 2019-2021 Cristina M. Iosifescu Enescu, Zurich. All rights reserved. Design based on: <a href="https://templated.co/">TEMPLATED</a>.
+							</div>
+						</footer>
+				</section>
+		</div>
+
+		<!-- Scripts -->
+			
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

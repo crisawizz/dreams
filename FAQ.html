@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<!--
+	author: Cristina M. Iosifescu Enescu, 
+	project: Dream Cartography
+	location: Institute of Cartography and Geoinformation, ETH Zurich, Switzerland
+	
+	initial HTML framework: Snapshot by TEMPLATED, templated.co @templatedco, Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Dream Cartography - Mapping portal FAQ</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="author" content="Cristina M. Iosifescu Enescu"/>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script type="text/javascript" src="scripts/generic.js"></script>
+	</head>
+	<body onload="verifyMapTab();">
+		<div class="page-wrap">
+
+			<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a href="index.jsp"><span class="icon fa-home"></span></a></li>
+						<!--<li><a href="uploadadream.html"><span class="icon fa-puzzle-piece"></span></a></li>-->
+						<li><a href="mapgallery.html"><span class="icon fa-map"></span></a></li>
+						<li><a href="gallery.html"><span class="icon fa-camera-retro"></span></a></li>
+						<li><a href="generic.html" ><span class="icon fa-file-text-o"></span></a></li>
+						
+						<img style="position: fixed; bottom: 2.5em; width: 3.8em" src="images/roza_mov_w_buffer_mica.png">
+					</ul>
+				</nav>
+
+			<!-- Main -->
+				<section id="main">
+
+					<!-- Header -->
+						<header id="header">
+							<div>...how to use the mapping portal...</div>
+						</header>
+
+					<!-- Section -->
+						<section>
+							<div class="inner">
+								<header>
+									<h1 >Do-It-Yourself Dream Map - FAQ</h1>
+								</header>
+								
+								<p>This is a short, not-complete guide to the mapping portal.</p>
+								<h2><a href="#drawing">Drawing</a></h2>
+								<h4><a href="#free_hand">How to draw free-hand on the canvas?</a></h4>
+								<h4><a href="#drop_img">The feature drag-and-drop image as thumbnail doesn't work, what can I do?</a></h4>
+								<br/>
+								<h2><a href="#geo">Using geographical data</a></h2>
+								<h4><a href="#geodata_layers">How can I manage the layers of geographical data on the map?</a></h4>
+								<h4><a href="#geodata_edit">Can I add geographical features (edit a layer)?</a></h4>
+								<h4><a href="#geodata">May I upload other geographical data to the map?</a></h4>
+								<h4><a href="#additional_map">What is the Additional Map Canvas and how can be used?</a></h4>
+								<h4><a href="#places_on_map">Can I make the settings from the dream report automatically appear on the map?</a></h4>
+								<br/>
+								<h2><a href="#misc">Miscellaneous</a></h2>
+								<h4><a href="#save_map">Can I save my dream map?</a></h4>
+								<h4><a href="#language">What does this mean: English with a probability of ...</a></h4>
+								<h4><a href="#annotate">What is the purpose of annotating the dream report?</span></a></h4>
+								<h4><a href="#info_icon">Side panel won't scroll, what can I do?</span></a></h4>
+								<br/>
+							</div>
+						</section>
+						<section>
+							<div class="inner main3">
+							<h2 id="drawing">Drawing</h2>
+								<h3 id="free_hand">How to draw free-hand on the canvas?</h3>
+										<p>
+											In the tool pannel <img src="images/adjust_map_mov.svg" width="50" height="50" style="vertical-align:middle"/>, click on the first menu-line named <img src="icons/sort.svg" width="50" height="50" style="vertical-align:middle"/> <b>Sorting Canvas</b>. Check the radio-button for <img src="icons/pensula.svg" width="50" height="50" style="vertical-align:middle"/> <b>Free Drawing</b> to activate this canvas. If the position of the Free Drawing canvas in this list is under the <b>Map</b> canvas, you might not see what you draw. You can drag the <b>Free Drawing</b> canvas on top of the <b>Map</b> canvas to rectify this. We offer different options for free drawing such as choosing the brush type, the color or the line width: under the Free Drawing menu line. You can also drag-and-drop images (as thumbnails) on the canvas when Free-Drawing-Canvas is active.
+										</p>
+								<h3 id="drop_img">The feature drag-and-drop image as thumbnail doesn't work, what can I do?</h3>
+								<p>
+											Please check if the Free-Drawing canvas is you active canvas, before you drag-and-drop the image. To turn Free-Drawing Canvas active go to the tool pannel <img src="images/adjust_map_mov.svg" width="50" height="50" style="vertical-align:middle"/>, click on the first menu-line named <img src="icons/sort.svg" width="50" height="50" style="vertical-align:middle"/> <b>Sorting Canvas</b> and check the radio-button for <img src="icons/pensula.svg" width="50" height="50" style="vertical-align:middle"/> <b>Free Drawing</b>. If the position of the Free Drawing canvas in this list is under the <b>Map</b> canvas, you might not see what you draw. You can drag the <b>Free Drawing</b> canvas on top of the <b>Map</b> canvas to rectify this. 
+										</p>
+							<div class="rightAllignedImage"><a href="#main"><img src="images/go_to_top.png"/></a></div>
+							</div>
+						</section>
+						<section>
+							<div class="inner main2">
+							<h2 id="geo">Using geographical data</h2>
+								<h3 id="geodata_layers">How can I manage the layers of geographical data on the map?</h3>
+									<p>
+											Under the <img src="icons/glob_jumate_points.svg" width="50" height="50" style="vertical-align:middle"/> <b>Geographic Map</b> menu line you can change the displayed layers on the map. There are two (or three) boxes with layers. From the <b>Available Layers</b> list you can drag-and-drop layers to the other list(s). The Displayed Layers are the layers you can see on the map and you can change their order with drag-and-drop in the list. If you press the button <b>Add New Map Canvas</b> a new, <img src="icons/glob_jumate_points_mov.svg" width="50" height="50" style="vertical-align:middle"/> <b>Additional Map Canvas</b> will appear in the list of the <img src="icons/sort.svg" width="50" height="50" style="vertical-align:middle"/> <b>Sorting Canvas</b>. Also to this new list you cand drag-and-drop layers from the available layers. For the utility of an Additional Map see <a href="additional_map">this answer</a> further down. <br/>
+											The layer names point to their type: _V for vector layers, respectively _R for raster layers. 
+											</p>
+								<h3 id="geodata_edit">Can I add geographical features (edit a layer)?</h3>
+								<p>
+											Yes. You can edit features on two layers: addLandmarks_V and Playground_V. The layer clippedNow_V contains the selected areas for clipping.<br/>
+											First activate the <img src="icons/glob_jumate_points.svg" width="50" height="50" style="vertical-align:middle"/> <b>Map</b> canvas. In the tool pannel <img src="images/adjust_map_mov.svg" width="50" height="50" style="vertical-align:middle"/> click on the first menu-line named <img src="icons/sort.svg" width="50" height="50" style="vertical-align:middle"/> <b>Sorting Canvas</b> and check the radio-button for the <b>Map</b>. 
+											</p>
+											
+											<p>You can add features to the map (on the playground_V layer). Choose what type on the feature in the drop-down list <b>Element Type </b>: marker (point), influence circular (point with radius), route free-hand and polyline (curved line and polyline with straighht lines between points), area free-hand and polygon. To add a feature you cand just choose the type in the drop-down list, or press the + button. To stop adding features press again the + button, so it turns purple again. You can also move these features, modify them or erase them. Removing features works in two steps: press on the - icon, select the feature to remove, then press the - icon again to remove it. Short explanations are given near to the buttons.
+											It is possible to clip an OpenStreetMaps layer with the area features in the playground_V layer. For this, press the button <b>Clip With Area</b> and select an area feature you just draw. The result is in the layer clippedNow_V, which you can add to the displayed layers. You can still modify the area feature.
+											You can add also landmarks (they are saved on the layer addLandmarks_V) by pressing the + button near Landmarks. The icon for this latter points can be switched (under the (i) press on the landmark icon displayed in the dropping panel). 
+											It is possible to drag-and-drop external vector files of type KML, JSON, GPX or IGC containing geographical data onto the map when the Map-Canvas is active and the corresponding button is pressed (yellow).
+											The modified vector layers are saved as Geojson into the database and redrawn when the dream is requested anew. 
+										</p>
+								<h3 id="geodata">May I upload other geographical data to the map?</h3>
+										<p>
+											Yes, it is possible to drag-and-drop external vector files of type KML, JSON, GPX or IGC containing geographical data onto the map when the Map-Canvas is active and the corresponding button is pressed (yellow). For that, the Map canvas has to be active. <br/> In the tool pannel <img src="images/adjust_map_mov.svg" width="50" height="50" style="vertical-align:middle"/> click on the first menu-line named <img src="icons/sort.svg" width="50" height="50" style="vertical-align:middle"/> <b>Sorting Canvas</b> and check the radio-button for the <b>Map</b>. 
+										</p>
+								<h3 id="additional_map">What is the Additional Map Canvas and how can be used?</h3>
+										<p>
+											In a dream a setting can have characteristics of more than one geographical location. This is why the additional map canvas was created, to allow the dreamer to cut and put together two maps. The additional map can be zoomed and moved separately.
+										</p>
+								<h3 id="places_on_map">Can I make the settings from the dream report automatically appear on the map?</h3>
+										<p>
+											Yes, partially. After you submit your dream report, for the given real place [(and comming soon) you may annotate the text for settings, characters, emotions, time and objects. For each place in this list, if geographic], you receive all geographical entities which contain this name (from geonames, nominatim). There you can select by checking the checkbox, which places should appear on the map. On the map, in the geojsonPlaces_V layer you can find these places. 
+										</p>
+							<div class="rightAllignedImage"><a href="#main"><img src="images/go_to_top.png"/></a></div>
+							</div>
+						</section>
+						<section>
+							<div class="inner main1">
+							<h2 id="misc">Miscellaneous</h2>
+								<h3 id="save_map">Can I save my dream map?</h3>
+										<p>
+											Yes, it is possible to save a picture of your map locally on your computer by pressing the button <b>Save Dream Map As Image</b>. 
+											<br/>
+											In the session storage of your browser we also save some information to allow you to navigate to other pages and continue working on the map afterwards. However, this is not working yet soundly. The same information is saved in our database and retrieved when you go to a dream you already saved at a prior time. You can try this by copying the URL with the dream id in it and saving it for a later editing session of the same dream. Notice that addLandmarks_V layer and the Free-drawing canvas are not saved yet. Moreover, this works only when the text in in English (for now).
+										</p>
+								<h3 id="language">What does this mean: English with a probability of ...</h3>
+										<p>
+											Our Web tool analyses the dream text you are sending, to proove if the language is English or not. For this reason, the dream text is sent over a secure connection to indico.io, which provides this information through the use of machine learning. For English texts, we plan to use indico.io also for other querries, such as the automatic detection of place names, of person names or for rating the text on its valence (positive / negative) and on emotions (anger, joy, fear, sadness and surprise). 
+										</p>
+								<h3 id="annotate">What is the purpose of annotating the dream report?</span></h3>
+										<p>
+											The annotations on the dream report will give you the possibility to put the settings on the map; to draw a vector diagram of your social interactions in the dream; or to pre-select a frame for your dream-map depending on the emotion. Another purpose is to save these information for a series of dreams and visualize it as a statistical data (e.g. how often did you dream about your father in the last two months).
+										</p>
+								<h3 id="info_icon">Side panel won't scroll, what can I do?</span></h3>
+										<p>
+											You cannot scroll the content of the side panel. However, you can fold away the opened menu items or hide / show more information by clicking on the Info icon <span class="icon fa-info-circle">, where available. 
+										</p>
+							<div class="rightAllignedImage"><a href="#main"><img src="images/go_to_top.png"/></a></div>
+							</div>	
+						</section>
+								
+					<!-- Footer -->
+						<footer id="footer">
+							<div class="copyright">
+								&copy; 2019 Cristina M. Iosifescu Enescu, Institute of Cartography and Geoinformation, ETH Zurich. All rights reserved. Design based on: <a href="https://templated.co/">TEMPLATED</a>.
+							</div>
+						</footer>
+				</section>
+		</div>
+
+		<!-- Scripts -->
+			
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

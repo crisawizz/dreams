@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<!--
+	author: Cristina M. Iosifescu Enescu, 
+	project: Dream Cartography
+	location: Institute of Cartography and Geoinformation, ETH Zurich, Switzerland
+	
+	initial HTML framework: Snapshot by TEMPLATED, templated.co @templatedco, Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Dream Cartography - Map Gallery</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="author" content="Cristina M. Iosifescu Enescu"/>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="scripts/generic.js"></script>
+	</head>
+	<body onload="verifyMapTab()">
+		<div class="page-wrap">
+
+			<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html"><span class="icon fa-home"></span></a></li>
+						<!-- <li><a href="uploadadream.html"><span class="icon fa-puzzle-piece"></span></a></li>-->
+						<li><a href="mapgallery.html" class="active"><span class="icon fa-map"></span></a></li>
+						<li><a href="gallery.html"><span class="icon fa-camera-retro"></span></a></li>
+						<li><a href="generic.html"><span class="icon fa-file-text-o"></span></a></li>
+						
+						<img style="position: fixed; bottom: 2.5em; width: 3.8em" src="images/roza_mov_w_buffer_mica.png">
+					</ul>
+				</nav>
+
+			<!-- Main -->
+				<section id="main">
+
+					<!-- Header -->
+						<header id="header">
+							<div>... dream a little dream with me ...</div>
+						</header>
+
+					<!-- Gallery -->
+						<section id="galleries">
+
+							<!-- Photo Galleries -->
+								<div class="gallery">
+
+									<!-- Filters -->
+										<header>
+											<h1>Dream Maps Gallery</h1>
+											<ul class="tabs">
+												<li><a href="#" data-tag="all" class="button active">All</a></li>
+												<li><a href="#" data-tag="birdseye" class="button">Bird's Eye</a></li>
+												<li><a href="#" data-tag="cityplan" class="button">City Plan</a></li>
+												<li><a href="#" data-tag="3D" class="button">3D</a></li>
+												<li><a href="#" data-tag="other" class="button">Other</a></li>
+											</ul>
+										</header>
+
+										<div class="content">
+											<div class="media all birdseye 3D">
+												<a href="maps/fulls/go_zh_uslar.jpg"><img src="maps/thumbs/t_go_zh_uslar.jpg" alt="" title="I lived in a university town, which bore combined features of G&ouml;ttingen and Zurich." /></a>
+											</div>
+											<div class="media all cityplan">
+												<a href="maps/fulls/go_zh_cityplan_uslar.jpg"><img src="maps/thumbs/t_go_zh_cityplan_uslar.jpg" alt="" title="I lived in a university town, which bore combined features of G&ouml;ttingen and Zurich." /></a>
+											</div>
+											<div class="media all 3D">
+												<a href="maps/fulls/sanssouci_uslar.jpg"><img src="maps/thumbs/t_sanssouci_uslar.jpg" alt="" title="I lived in a house that was right on the edge of a rocky slope..." /></a>
+											</div>
+											<div class="media all other">
+												<a href="maps/fulls/social_uslar.jpg"><img src="maps/thumbs/t_social_uslar.jpg" alt="" title="Ich frage ihn noch nach anderen Bekannten meines Vaters..." /></a>
+											</div>
+											<div class="media all birdseye 3D">
+												<a href="maps/fulls/zh_bu_iosifescu12.jpg"><img src="maps/thumbs/t_zh_bu_iosifescu12.jpg" alt="" title="I worked in Zurich and in the evening I took the tram to go home to my parents in Bucharest" /></a>
+											</div>
+											
+										</div>
+								</div>
+						</section>
+
+					<!-- Contact -->
+						<section >
+							<!-- Social -->
+								<div class="main2 column">
+									<h3>About the Maps in this Gallery</h3>
+									<p>These Dream Maps were produced manually or automatically for a dream scene. The afferent text of the dream report is usualy openly available.<br/>
+									Would you like to see your dream map in this gallery? <a href="index.html#easyupload">Upload a dream!</a></p>
+								</div>
+
+							<!-- Form 
+								<div class="column">
+									<h3>Get in Touch</h3>
+									<form action="#" method="post">
+										<div class="field half first">
+											<label for="name">Name</label>
+											<input name="name" id="name" type="text" placeholder="Name">
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input name="email" id="email" type="email" placeholder="Email">
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+										</div>
+										<ul class="actions">
+											<li><input value="Send Message" class="button" type="submit"></li>
+										</ul>
+									</form>
+								</div>-->
+
+						</section>
+
+					<!-- Footer -->
+						<footer id="footer">
+							<div class="copyright">
+								&copy; 2019-2021 Cristina M. Iosifescu Enescu, Zurich. All rights reserved. Design based on: <a href="https://templated.co/">TEMPLATED</a>.
+							</div>
+						</footer>
+				</section>
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
