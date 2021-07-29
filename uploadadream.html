@@ -1,0 +1,344 @@
+<!DOCTYPE HTML>
+<!--
+	author: Cristina M. Iosifescu Enescu, 
+	project: Dream Cartography
+	location: Institute of Cartography and Geoinformation, ETH Zurich, Switzerland
+	
+	initial HTML framework: Snapshot by TEMPLATED, templated.co @templatedco, Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Dream Cartography - Re-Visiualizing Your Dreams</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="author" content="Cristina M. Iosifescu Enescu"/>
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+		<div class="page-wrap">
+
+			<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html"><span class="icon fa-home"></span></a></li>
+						<li><a href="uploadadream.html" class="active"><span class="icon fa-puzzle-piece"></span></a></li>
+						<li><a href="mapgallery.html"><span class="icon fa-map"></span></a></li>
+						<li><a href="gallery.html"><span class="icon fa-camera-retro"></span></a></li>
+						<li><a href="generic.html"><span class="icon fa-file-text-o"></span></a></li>
+						<li><a href="DIYdreammap.html"><img id="dreammap_icon" src="images/adjust_map_mov_pal.svg"/></a></li>
+						
+						<img style="position: fixed; bottom: 2.5em; width: 3.8em" src="images/roza_mov_w_buffer_mica.png">
+					</ul>
+				</nav>
+
+			<!-- Main -->
+				<section id="main">
+
+					<!-- Header -->
+						<header id="header">
+							<div>...upload your dream...</div>
+						</header>
+
+					<!-- Section -->
+						<section>
+							<div class="inner">
+								<header>
+									<h1>Upload a dream</h1>
+								</header>
+								<!-- Form -->
+								<div class="column">
+									<form action="#" method="post">
+										<div class="field">
+											<legend>Please describe your dream here.</legend>
+											<label for="dreamreport">Dream <span title="Describe your dream here: Where were you? With whom? What happened?" class="icon fa-info-circle"></span>
+											<textarea name="dreamreport" id="dreamreport" rows="6" placeholder="Describe your dream here: Where were you? With whom? What happened?"></textarea></label>
+										</div>
+										<div class="field">
+											<legend>Please write your thoughts about the remembered dream scene, including elements from the real life, which you think might be connected to it.</legend>
+											<label for="dreamrelated">Thoughts about your dream <span title="What did the different dream elements make you think about? What did you do yesterday that could have inspired the dream?" class="icon fa-info-circle"></span>
+											<textarea name="dreamrelated" id="dreamrelated" rows="6" placeholder="What did the different dream elements make you think about? What did you do yesterday that could have inspired the dream?"></textarea></label>
+										</div>
+										<div class="column">
+											<h3>Detailed Information for a Dream Scene</h3>
+											<p>Please answer the following questions regarding the dream scene, if they apply. It is always possible to answer I don't know, or I don't remember, or it was not clear in the dream. You may add a new dream scene at the end and answer these questions again for the new dream scene.</p>
+											
+											<ol type="1">
+											<label>Please copy a dream scene from your Dream Report here. <span title="A Dream Scene is a part of the dream, where the location and/or emotion remain the same." class="icon fa-info-circle"></span>
+											<textarea name="dreamscene" id="dreamscene" rows="2" placeholder="a dream scene here... A dream scene is a part of the dream, where the location and/or emotion remain the same."></textarea></label>
+											
+											<fieldset>
+											<legend><li>Is the dream location:</li></legend>
+											<input type="radio" name="visuallocation" value="visuallocation" id="visuallocation"><label for="visuallocation">visualized</label>
+											<input type="radio" name="visuallocation" value="nonvisuallocation" id="nonvisuallocation"><label for="nonvisuallocation">known without visualization</label>
+											<input type="radio" name="visuallocation" value="notknownlocation" id="notknownlocation"><label for="notknownlocation">completely indeterminate</label>
+											<input type="radio" name="visuallocation" value="habarnamlocation" id="habarnamlocation" checked>
+												<label for="habarnamlocation">
+													<select name="dontkonwlist" aria-activedescendant="habarnamlocation">
+														<option value="dontknow" aria-activedescendant="habarnamlocation">I don't know</option>
+														<option value="dontremember" aria-activedescendant="habarnamlocation">I don't remember</option>
+														<option value="notclear" aria-activedescendant="habarnamlocation">it was not clear in the dream</option>
+													</select>
+													 
+												</label>
+											</fieldset>
+											<fieldset>	
+											<legend><li>Is the location: </li></legend>
+											<input type="radio" name="identifiablelocation" value="identifiable" id="identifiablelocation"><label for="identifiablelocation">identifiable</label>
+											<input type="radio" name="identifiablelocation" value="notidentifiable" id="notidentifiablelocation"><label for="notidentifiablelocation">not identifiable</label>
+											<input type="radio" name="identifiablelocation" value="habarnamidentifiable" id="habarnamidentifiable" checked>
+												<label for="habarnamidentifiable">
+													<select name="dontkonwlist">
+														<option value="dontknow">I don't know</option>
+														<option value="dontremember">I don't remember</option>
+														<option value="notclear">it was not clear in the dream</option>
+													</select>
+												</label>
+											</fieldset>
+											<fieldset>
+											<legend><li>Is the location:</li></legend>
+											<input type="radio" name="familiarlocation" value="familiar" id="familiarlocation"><label for="familiarlocation">familiar</label>
+											<input type="radio" name="familiarlocation" value="notfamiliar" id="notfamiliarlocation"><label for="notfamiliarlocation">not familiar</label>
+											<input type="radio" name="familiarlocation" value="habarnamfamiliar" id="habarnamfamiliar" checked>
+												<label for="habarnamfamiliar">
+													<select name="dontkonwlist">
+														<option value="dontknow">I don't know</option>
+														<option value="dontremember">I don't remember</option>
+														<option value="notclear">it was not clear in the dream</option>
+													</select>
+												</label>
+											</fieldset>
+											<fieldset>
+											<legend><li>Is the geographical situation specified?</li><legend>
+											<input type="radio" name="specifiedlocation" value="specified" id="specifiedlocation"><label for="specifiedlocation">yes</label> 
+											<input type="radio" name="specifiedlocation" value="notspecified" id="notspecifiedlocation"><label for="notspecifiedlocation">no</label>
+											<input type="radio" name="specifiedlocation" value="habarnamspecified" id="habarnamspecified" checked>
+												<label for="habarnamspecified">
+													<select name="dontkonwlist">
+														<option value="dontknow">I don't know</option>
+														<option value="dontremember">I don't remember</option>
+														<option value="notclear">it was not clear in the dream</option>
+													</select>
+												</label>
+											</fieldset>
+											<label for="dreamspecifiedlocation"> If yes, what is it? <input name="dreamspecifiedlocation" id="dreamspecifiedlocation" type="text"></label>
+												
+											<p>
+											<li>If the location is visualized: What was</li>
+											<label for="distinctinthesetting"> clearly distinct? <input type="text" id="distinctinthesetting"> </label>
+											<label for="vagueinthesetting"> vague? <input type="text" id="vagueinthesetting"></label>
+											<label for="fuzzyinthesetting"> fuzzy? <input type="text" id="fuzzyinthesetting"></label>
+											</p>
+											
+											<fieldset>	
+											<legend><li>If the location was clearly visualized: is there a condensation of features of two or more places?</li></legend>
+											<input type="radio" name="condensedlocation" value="condensed" id="condensedlocation"><label for="condensedlocation">yes</label>
+											<input type="radio" name="condensedlocation" value="notcondensed" id="notcondensedlocation"><label for="notcondensedlocation">no</label>
+											<input type="radio" name="condensedlocation" value="habarnamcondensed" id="habarnamcondensed" checked>
+												<label for="habarnamcondensed">
+													<select name="dontkonwlist">
+														<option value="dontknow">I don't know</option>
+														<option value="dontremember">I don't remember</option>
+														<option value="notclear">it was not clear in the dream</option>
+													</select>
+												</label>
+											</fieldset>
+											<legend>If yes, which ones?</legend>
+											<label for="whichcondensedlocation0"> Location <input name="whichcondensedlocation0" id="whichcondensedlocation0" type="text" placeholder="City, elements; e.g. Zurich, buildings of the ETH and University"></label>
+											<label for="whichcondensedlocation1"> Location <input name="whichcondensedlocation1" id="whichcondensedlocation1" type="text" placeholder="City, elements; e.g. G&ouml;ttingen, city center"></label>
+											<fieldset>
+											<legend><li>Does the location correspond to </li></legend>
+											<input type="checkbox" name="correspondinglocation" value="current" id="currentlocation"><label for="currentlocation">your current waking location?</label>
+											<input type="checkbox" name="correspondinglocation" value="past" id="pastlocation"><label for="pastlocation">a past living location?</label>
+											<input type="checkbox" name="correspondinglocation" value="visited" id="visitedlocation"><label for="visitedlocation">a location you visited?</label>
+											<input type="checkbox" name="correspondinglocation" value="atafriend" id="atafriendlocation"><label for="atafriendlocation">a place where a relative or friend lives?</label>
+											<input type="checkbox" name="correspondinglocation" value="habarnamcorresponding" id="habarnamcorresponding">
+												<label for="habarnamcorresponding">
+													<select name="dontkonwlist">
+														<option value="dontknow">I don't know</option>
+														<option value="dontremember">I don't remember</option>
+														<option value="notclear">it was not clear in the dream</option>
+													</select>
+												</label>
+											</fieldset>
+											
+											<fieldset>
+											<legend><li>Which of the following categories does the dream location fit into? </li></legend>
+											<input type="checkbox" name="categorylocation" value="builtup" id="builtuplocation"><label for="builtuplocation">built-up area</label>
+											<input type="checkbox" name="categorylocation" value="countryside" id="countrysidelocation"><label for="countrysidelocation">countryside</label>
+											<input type="checkbox" name="categorylocation" value="hills" id="hillslocation"><label for="hillslocation">hills</label>
+											<input type="checkbox" name="categorylocation" value="mountains" id="mountainslocation"><label for="mountainslocation">mountains</label>
+											<input type="checkbox" name="categorylocation" value="seaside" id="seasidelocation"><label for="seasidelocation">seaside</label>
+											<input type="checkbox" name="categorylocation" value="exotic" id="exoticlocation"><label for="exoticlocation">exotic</label>
+											<input type="checkbox" name="categorylocation" value="fantasy" id="fantasylocation"><label for="fantasylocation">fantasy</label>
+											<input type="checkbox" name="categorylocation" value="sflocation" id="sflocation"><label for="sflocation">science fiction</label>
+											<input type="checkbox" name="categorylocation" value="habarnamcategory" id="habarnamcategory">
+												<label for="habarnamcategory">
+													<select name="dontkonwlist">
+														<option value="dontknow">I don't know</option>
+														<option value="dontremember">I don't remember</option>
+														<option value="notclear">it was not clear in the dream</option>
+													</select>
+												</label>
+											</fieldset>
+											
+											<legend><li>Does the location fit into a subcategory? If yes, which one? e.g. street, in front of a shop, meadow, path</li></legend>
+											<label for="whichsubcategory"> Subcategory <input name="whichsubcategory" id="whichsubcategory" type="text" placeholder="Street or In front of a shop, etc"></label>
+											
+											<fieldset>
+											<legend><li>Could you orient yourself</li></legend>
+											<input type="radio" name="orientationlocation" value="yes" id="yesorientationlocation"><label for="yesorientationlocation">easily in the setting?</label>
+											<input type="radio" name="orientationlocation" value="no" id="noorientationlocation"><label for="noorientationlocation">or did you have difficulties with spatial orientation?</label>
+											<input type="radio" name="orientationlocation" value="habarnamorientation" id="habarnamorientation" checked>
+												<label for="habarnamorientation">
+													<select name="dontkonwlist">
+														<option value="dontknow">I don't know</option>
+														<option value="dontremember">I don't remember</option>
+														<option value="notclear">it was not clear in the dream</option>
+													</select>
+												</label>
+											</fieldset>
+											
+											<legend><li>What memories (if any) come to your mind about such a location? </li></legend>
+											<label for="whichmemorieslocation">Describe the memory and specify your ideas or emotions linked to that memory.
+											<textarea name="whichmemorieslocation" id="whichmemorieslocation" rows="1" placeholder="e.g. Ten years ago I used to work in a place like that. It was a good work environment, which now I miss."></textarea></label>
+											
+											<legend><li>If the location is indeterminate, can you think of elements that could nevertheless materialize the dream setting? (e.g., spoken language, signposts, infrastructure, natural phenomena) </li></legend>
+											<label for="whichotherelementslocation">If yes, which?<textarea name="whichotherelementslocation" id="whichotherelementslocation" rows="1" placeholder="e.g. I usualy speak English with Johann, but in this dream I spoke German."></textarea></label>
+											
+											<fieldset>
+											<legend><li>Was the dream scene emotionally </li></legend>
+											<input type="radio" name="emotion" value="neutral" id="neutralemotion"><label for="neutralemotion">neutral?</label>
+											<input type="radio" name="emotion" value="pleasant" id="pleasantemotion"><label for="pleasantemotion">pleasant?</label>
+											<input type="radio" name="emotion" value="unpleasant" id="unpleasantemotion"><label for="unpleasantemotion">unpleasant?</label>
+											<input type="radio" name="emotion" value="habarnamemotion" id="habarnamemotion">
+												<label for="habarnamemotion">
+													<select name="dontkonwlist">
+														<option value="dontknow">I don't know</option>
+														<option value="dontremember">I don't remember</option>
+														<option value="notclear">it was not clear in the dream</option>
+													</select>
+												</label>
+											
+											<label for="specificemotion">Specify the emotion
+											<input name="specificemotion" id="specificemotion" type="text" placeholder="e.g. Happiness, Anger, Detachment, etc."></label>
+											</fieldset>
+											
+											</br><p>Please check that your dream report describes everything you visualized or that you had the feeling of knowing about the setting of the dream scene during the dream experience. Do not be surprised if you were aware of only a few aspects of the setting.</p>
+											</ol>
+											
+											<ul class="actions">
+												<li><input value="Add a new dream scene" class="button" type="submit"></li>
+											</ul>
+											
+											</div>
+											
+											<h3>Other Dream Aspects</h3>
+
+											<fieldset>
+											<legend>Were you trying to </legend>
+											<input type="radio" name="goal" value="achieve" id="achievegoal"><label for="achievegoal">achieve</label>
+											<input type="radio" name="goal" value="avoid" id="avoidgoal"><label for="avoidgoal">avoid something in the dream?</label>
+											<input type="radio" name="goal" value="habarnamgoal" id="habarnamgoal" checked>
+												<label for="habarnamgoal">
+													<select name="dontkonwlist">
+														<option value="dontknow">I don't know</option>
+														<option value="dontremember">I don't remember</option>
+														<option value="notclear">it was not clear in the dream</option>
+													</select>
+												</label>
+											</fieldset>
+											
+											<fieldset>
+											<legend>Did you have the feeling of </legend>
+											<input type="radio" name="success" value="yes" id="successyes"><label for="successyes">succeeding</label>
+											<input type="radio" name="success" value="no" id="successno"><label for="successno">failing at something?</label>
+											<input type="radio" name="success" value="habarnamsuccess" id="habarnamsuccess" checked>
+												<label for="habarnamsuccess">
+													<select name="dontkonwlist">
+														<option value="dontknow">I don't know</option>
+														<option value="dontremember">I don't remember</option>
+														<option value="notclear">it was not clear in the dream</option>
+													</select>
+												</label>
+											<label for="specificsuccess">If yes, at what?
+											<input name="specificsuccess" id="specificsuccess" type="text" placeholder="e.g. Arriving in time for an exam"></label>
+											</fieldset>
+											
+											<fieldset>
+											<legend>What senses did you use in the dream? </legend>
+											<input type="checkbox" name="senses" value="vision" id="visionsenses"><label for="visionsenses">vision</label>
+											<input type="checkbox" name="senses" value="hearing" id="hearingsenses"><label for="hearingsenses">hearing</label>
+											<input type="checkbox" name="senses" value="touch" id="touchsenses"><label for="touchsenses">touch</label>
+											<input type="checkbox" name="senses" value="smell" id="smellsenses"><label for="smellsenses">smell</label>
+											</fieldset>
+											
+										</div>
+										<div class="field">
+										<h3>Background Information </h3>
+											<legend>Please provide some details regarding the waking location at and the date when you had the dream, your birthdate and your childhood location. We need these latter two in order to create a more personalized dream map.</legend>
+										
+										<div class="field half first">
+											<label for="realplace">Current location <span title="City, State. Where you were sleeping when you had this dream." class="icon fa-info-circle"></span>
+											<input name="realplace" id="realplace" type="text" placeholder="City, State. Where you were sleeping when you had this dream."></label>
+										</div>
+										<div class="field half">
+											<label for="date">Date of the dream <span title="dd.mm.yyyy. The date when you had the dream." class="icon fa-info-circle"></span>
+											<input name="date" id="date" type="text" placeholder="dd.mm.yyyy. When you had the dream."></label>
+										</div>
+										<div class="field half first">
+											<label for="birthyear">Birth year (optional) <span title="We need this for personalizing the dream map" class="icon fa-info-circle"></span>
+											<input name="birthyear" id="birthyear" type="text" placeholder="yyyy"></label>
+										</div>
+										<div class="field half">
+											<label for="childhood">Childhood location (optional) <span title="Were you mostly lived between 6 and 16 years of age" class="icon fa-info-circle"></span>
+											<input name="childhood" id="childhood" type="text" placeholder="City, State. Between 6 and 16 years of age"></label>
+										</div>
+										</div>
+										<div class="field">
+											<legend>Write here some details about yourself, if you want to stay in contact with us.</legend>
+										<div class="field half first">
+											<label for="dreamername">Name (optional)
+											<input name="dreamername" id="dreamername" type="text" placeholder="Name"></label>
+										</div>
+										<div class="field half">
+											<label for="email">Email (optional) <span title="if you want us to contact you, or for creating an account with us" class="icon fa-info-circle"></span>
+											<input name="email" id="email" type="email" placeholder="Email"></label>
+										</div>
+										<label>Any other comments
+										<textarea name="othercomments" id="othercomments" rows="2" placeholder="Comments about yourself as a dreamer or about your living situation which might influence this..."></textarea></label>
+										</div>
+										<div id="publicdream">
+											<input type="checkbox" id="publicdream"><label for="publicdream">I agree that this dream is published here, on <a href="http://dreams.ethz.ch/" target="_blank">http://dreams.ethz.ch/</a>.</input>
+										</div>
+										<div id="termsofuse">
+											<input type="checkbox" id="terms"><label for="terms">I have read and accept the <a href="docs/Terms_of_Use_DreamsETHZ.pdf" target="_blank"> Terms of Use </a></label></input>
+										</div>
+										<ul class="actions">
+											<li><input value="Send Dream" class="button" type="submit"></li>
+										</ul>
+									</form>
+								</div>
+								
+							</div>
+						</section>
+
+						
+					<!-- Footer -->
+						<footer id="footer">
+							<div class="copyright">
+								&copy; 2019 Cristina M. Iosifescu Enescu, Institute of Cartography and Geoinformation, ETH Zurich. All rights reserved. Design based on: <a href="https://templated.co/">TEMPLATED</a>.
+							</div>
+						</footer>
+				</section>
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

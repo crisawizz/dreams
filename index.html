@@ -1,5 +1,3 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE HTML>
 <!--
 	@author: Cristina M. Iosifescu Enescu, 
@@ -15,7 +13,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="author" content="Cristina M. Iosifescu Enescu"/>
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
 	<body onload="verifyMapTab()">
 		<div class="page-wrap">
@@ -24,10 +21,11 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="index.jsp" class="active"><span class="icon fa-home"></span></a></li>
-						<!--<li><a href="uploadadream.html"><span class="icon fa-puzzle-piece"></span></a></li>-->
+						<li><a href="uploadadream.html"><span class="icon fa-puzzle-piece"></span></a></li>
 						<li><a href="mapgallery.html"><span class="icon fa-map"></span></a></li>
 						<li><a href="gallery.html"><span class="icon fa-camera-retro"></span></a></li>
 						<li><a href="generic.html"><span class="icon fa-file-text-o"></span></a></li>
+						<li><a href="DIYdreammap.html"><img id="dreammap_icon" src="images/adjust_map_mov_pal.svg"/></a></li>
 						
 						<img style="position: fixed; bottom: 2.5em; width: 3.8em" src="images/roza_mov_w_buffer_mica.png">
 					</ul>
@@ -41,27 +39,7 @@
 							<div class="inner">
 								<h1>Dream Cartography</h1>
 								<p>the scientific project for mapping dreams </p>
-								<ul id="actionlogin" class="actions" >
-									<li><a href="register.html" class="button">Register as Dreamer</a></li>
-									<li>continue as guest</li> 
-									<li>or sign in:
-								<form  class="alt" action="index.jsp" onSubmit="feedbackLogin()" method="POST">
-
-								<div class="tight">
-									<input name="email" id="email" class="alt" type="email" placeholder="e-mail*" required>
-									<input name="password" id="password" class="alt" type="password" placeholder="password*" required>
-								<ul class="actions">
-									<li><input value="Login" class="button" type="submit"></li>
-								</ul></div>
-								<div class="tight h-1"><a href="forgotten_password.html" class="iinfo textr">I forgot my password...</a></div>
-								</form>
-								
-									</li>
-								</ul>
-								<p id="mess_feedback"></p>
-								
-									
-								
+								<button>START</button>
 							</div>
 							
 						</section>
@@ -93,7 +71,7 @@
 										</div>
 										<div class="field half">
 											<label for="date">Date * <span title="dd.mm.yyyy. The date when you had the dream." class="icon fa-info-circle"></span></label>
-											<input name="date" id="date" value="<%=today%>" type="text" placeholder="dd.mm.yyyy. When you had the dream." pattern="[0-9.]{4,10}" required title="yyyy or mm.yyyy or dd.mm.yyyy">
+											<input name="date" id="date" value="" type="text" placeholder="dd.mm.yyyy. When you had the dream." pattern="[0-9.]{4,10}" required title="yyyy or mm.yyyy or dd.mm.yyyy">
 										</div>
 										<div class="field half first">
 											<label for="name">Your (Nick-) Name *</label>
@@ -107,7 +85,7 @@
 											<input type="checkbox" name="details" id="details"><label for="details">I could give you more details about this dream (answer some questions about the dream setting) </input>
 										</div>-->
 										<div id="publicdream">
-											<input type="checkbox" name="public" id="public" class="specialcb"><label for="public">I agree that this dream is published here, on <a href="https://dreams.ethz.ch/" target="_blank">https://dreams.ethz.ch/</a>.</label></input>
+											<input type="checkbox" name="public" id="public" class="specialcb"><label for="public">This dream is published only here.</label></input>
 										</div>
 										<div id="termsofuse">
 											<input type="checkbox" name="terms" id="terms" class="specialcb" required><label for="terms">I have read and accept the <a href="terms.html" target="_blank"> Terms of Use </a></label></input>
@@ -131,7 +109,7 @@
 									<p></p>
 									<h3>Get in Touch</h3>
 									<ul class="icons">
-										<li><a title="Send us an e-mail" href="mailto:dreams@karto.baug.ethz.ch" class="icon fa-envelope"><span class="label">E-mail</span></a></li>
+										<li><a title="Send me feedback" href="mailto:crisa@gmx.ch" class="icon fa-envelope"><span class="label">E-mail</span></a></li>
 										<li><a title="See the Dream Cartography project on ResearchGate" href="https://www.researchgate.net/project/Dream-Cartography" target="_blank" class="icon fa-university"><span class="label">ResearchGate</span></a></li>
 										<li><a title="Check Cristina's profile on LinkedIn" href="https://www.linkedin.com/in/cristina-m-iosifescu-enescu-7244bb13a/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
 									</ul>
@@ -209,45 +187,10 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 <script>
-var feedback = "<%=mess_feedback%>";
-document.getElementById("mess_feedback").innerHTML = feedback;
-if (feedback.indexOf("Welcome")>=0) {
-	var username='<%=username%>'
-	document.getElementById("actionlogin").style.display="none";
-	document.getElementById("uploadadream").innerHTML="Upload a dream (as "+username+")";
-}
+var today = getDate();
+document.getElementById("date")=today;
 
-function recaptchaCallback() {
-        var btnSubmit = document.getElementById("btnSubmit");
-        if ( btnSubmit.disabled ) {
-            btnSubmit.disabled=false;
-        }
-    }
-/*function feedbackLogin() {
-var separationstring = "hereidomybreak";
-var param="email="+document.getElementById("email").value+"&password="+document.getElementById("password").value;
-var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-		var arr = this.responseText.split(separationstring);
-		if (arr[0]=="success") {
-			var username = arr[1];
-			var userid= arr[2];
-			window.location="index.jsp?userid="+userid+"&username="+username;
-			
-			
-			document.getElementById("feedback").innerHTML = "Welcome, "+username+"!"; 
-		}
-		else if (this.responseText=="failure") {
-			document.getElementById("feedback").innerHTML = "Login failed";
-		}
-    }
-  };
 
- xhttp.open("POST", "https://dreams.ethz.ch/textpro/LoginVerif", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send(param);
-}*/
 </script>
 	</body>
 </html>

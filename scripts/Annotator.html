@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+            ::-moz-selection {
+                background: transparent;
+            }
+
+            ::selection {
+				background: transparent;
+			}
+
+			#textDiv {
+				width: 100%;
+			}
+
+            #annotationTypesDiv, #resultsDiv {
+                margin-top: 10px;
+            }
+
+            body {
+                font-family: 'Palatino Linotype', 'Book Antiqua', 'Palatino', 'serif';
+            }
+
+		</style>
+	</head>
+	<body>
+        <div id="textDiv"></div>
+        <div id="annotationTypesDiv"></div>
+
+        <div id="resultsDiv"></div>
+
+        <script src="Annotator.js"></script>
+        <script>
+            var text = "Ich komme in das Schulgebäude in Schwerin, um ein Hemd zu holen, das ich dort vor Jahren vergessen habe. Es hängt noch an derselben Stelle auf der Kleiderablage draussen auf dem Flur zwischen Sachen der jetztigen Schüler. Ich sehe es auf Anhieb, nehme es, gehe in die Klasse, in der gerade Unterricht ist, um es dem Lehrer vorzuzeigen. Dieser erkennt mich noch. Er ist sehr höflich. Ich sage: Ich wollte Ihnen das Hemd noch erst zeigen, um es nicht so sang- und klanglos verschwinden zu lassen. Er begleitet mich noch vor die Türe und verabschiedet sich sehr höflich. Ende";
+
+            var annotationTypes = [
+				{
+					"color": "green",
+					"label": "Settings",
+					"indices": [[8,9],[12,13]],
+				}, {
+					"label": "Characters",
+					"color": "red",
+					"indices": [[0,1],[72,73],[94,95],[112,113]]
+				}, {
+					"label": "Emotions",
+					"color": "yellow",
+					"indices": [[130,131],[196,197]]
+				}
+			];
+
+            var highlightingColor = "lightblue";
+
+            var annotator = new Annotator(text, annotationTypes, highlightingColor, "textDiv", "annotationTypesDiv");
+
+			function addToHTML(annotationTypes) {
+                var annotationTypesString = "";
+
+                annotationTypes.forEach(function(annotationType) {
+                    if (annotationType.words.length > 0)
+                        annotationTypesString += annotationType.label + ": " + annotationType.words.join("; ") + "<br/>";
+                });
+
+                document.getElementById("resultsDiv").innerHTML = "<div>" + annotationTypesString + "</div>";
+            };
+			
+            annotator.annotationTypesChanged = addToHTML;
+
+            //use this method to get all currently annotated words:
+            var annotationTypes = annotator.getAnnotatedWords();
+			addToHTML(annotationTypes);
+        </script>
+    </body>
+</html>

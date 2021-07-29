@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<!--
+	author: Cristina M. Iosifescu Enescu, 
+	project: Dream Cartography
+	location: Zurich, Switzerland
+	
+	initial HTML framework: Snapshot by TEMPLATED, templated.co @templatedco, Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Dream Cartography - Re-Visiualizing Your Dreams</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="author" content="Cristina M. Iosifescu Enescu"/>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--<script src="https://openlayers.org/en/v4.3.4/build/ol.js"></script>-->
+		<script src="scripts/ol/v4.3.4/build/ol.js"></script>
+		<script src="scripts/brushDrawing.js"></script>
+		<script src="scripts/openlayers_canvas.js"></script>
+		<script src="scripts/RubaXaSortable/Sortable.js"></script>	
+		<script src="scripts/generic.js"></script>
+		<script src="scripts/html_canvas_drawing.js"></script>		
+
+	</head>
+
+
+	<body onload="initAccordion()" > 
+
+
+		<div class="page-wrap">
+
+			<!-- Nav -->
+				<nav id="nav" >
+					<ul>
+						<li><a href="index.html"><span class="icon fa-home"></span></a></li>
+						<li><a href="uploadadream.html"><span class="icon fa-puzzle-piece"></span></a></li>
+						<li><a href="mapgallery.html"><span class="icon fa-map"></span></a></li>
+						<li><a href="gallery.html"><span class="icon fa-camera-retro"></span></a></li>
+						<li><a href="generic.html"><span class="icon fa-file-text-o"></span></a></li>
+						<li><a href="DIYdreammap.html" class="active"><img id="dreammap_icon" src="images/adjust_map_galben.svg"/></a></li>
+						
+						<img style="position: fixed; bottom: 2.5em; width: 3.8em" src="images/roza_mov_w_buffer_mica.png">
+					</ul>
+				</nav>
+ 
+				<script>
+function hover(element) {
+	element.setAttribute('src', 'images/adjust_map_alb.svg');
+}
+
+function unhover(element) {
+	element.setAttribute('src', 'images/adjust_map_mov_pal.svg');
+}
+</script>
+			<!-- Main -->
+				<section id="main">
+
+					<!-- Header -->
+						<header id="header">
+							<div id="mess_header">...a dream map</div>
+						</header>
+
+					<!-- Section -->
+						<section>
+							<div class="inner">
+								<header>
+									<h2>Dream Input</h2>
+								</header>
+								<p id="dreamReport"></p>
+								<form action="annotate.jsp?dreamUUID=<%=dreamUUID_url%>" method="post" accept-charset="UTF-8">
+									<input id="new_dream_button" type="submit" class="button" value="Annotate Text" onclick="target='blank'"/>
+									<a id="dreamprofile" class="button" href="dreamprofile.jsp">Make the Dream Profile <i class="fa fa-bullseye"></i></a>
+									<a id="dreamsettingprofile" class="button" href="dreamsettingprofile.jsp">Make the Dream Setting Profile <i class="fa fa-bullseye"></i></a>
+								</form> 
+								
+								<p id="givenlocations"></p>
+								<p class="iinfo">The world of your imagination is endless! Would you like to try and represent a bit of it using our tools? <br/><span class="icon fa-info-circle"> This dream mapping tool is in beta version (experimental). <a href="FAQ.html" target="_blank">Here</a> is an incomplete guide on how to use it. We are grateful for any ideas or suggestions, which may be sent to <a href="mailto:dreams@ethz.ch">dreams [at] ethz.ch</a></span> </p> 
+							</div>
+						</section>
+						
+
+							<section>
+							<div class="canvas">
+								<header>
+										<h2> &nbsp;&nbsp;Dream Map (Do-It-Yourself) <a href="#map_container"><span class="icon fa-expand"></span><a> </h2>
+									</header>
+								<div id="map_container" class="map" style="position: relative;">
+									<div id="ol_map" class="map" style="position: absolute;"></div>
+									<canvas id="Free_Drawing_Canvas" class="map" style="position: absolute;">
+										Update your browser to enjoy canvas!
+									</canvas>
+									<canvas id="Frame_Canvas" class="map" style="position: absolute; z-index=2;">frame</canvas>
+								</div>
+							</div>
+							<div id="credits"> <p><span class="iinfo icon fa-info-circle"> Geographical Map Layers, Credits: OpenStreetMap contributors, Stamen Design; Technology: HTML5 Canvas, OpenLayers</span></p>
+							</div>
+							</section>
+							<section>
+							<div class="inner" >
+									<a id="saveDreamMap" class="button" onclick="saveDreamMap()">Save Dream Map As Image <i class="fa fa-download"></i></a>
+									<a id="saveDreamMapToDB" class="button" onclick="saveDreamMapToServer()">Save Dream Editing Map To Server <i class="fa fa-upload"></i></a>
+									<a id="saveDreamImageToDB" class="button" onclick="saveDreamImageToServer()">Save Dream Map Image To Server <i class="fa fa-upload"></i></a>
+									<!--<input name="saveDreamMap" id="saveDreamMap" class="button" type="submit" onclick="saveDreamMap()" value="Save Dream Map As Image">
+									<a id="export-png" class="button" onclick="downloadPng()"><i class="fa fa-download"></i> Download PNG</a>-->
+								<div style="display:inline-block">
+									<form action="index.html#easyupload" method="post" accept-charset="UTF-8">
+										<input type="submit" class="button" value="Upload another Dream" onclick="window.sessionStorage.clear()"/>
+									</form>
+								</div>
+								<p id="feedbackSaved"></p>
+								<!--<p>Click <a href="index.html#easyupload">here</a> to upload another dream. 
+								</p>-->
+							</div>
+							<div id="savedImage" class="canvas">
+								<img id="canvasImg" src=""/>
+							</div>
+							
+						</section>
+
+						<div id="menubox" class="hide" >
+							<ul id="tab">
+								<li>
+									<img id="arrow" width="50px" height="50px" onclick="toggle('menubox');" src="images/adjust_map_mov.svg">
+								</li>
+							</ul>
+							<div id="links">
+								<div id="deco">
+									<!-- Sorting Canvases -->
+									<div id="4_canvas_order">
+										<button class="accordion alt">
+											<img src="icons/sort.svg" height="50" width="50" style="vertical-align:middle"/> <b>Sorting Canvases</b>
+										</button>
+										<div class="accpanel">
+											<button class="accordion alt iinfo">
+												</button>
+													<div class="accpanel iinfo"><span class="icon fa-info-circle"> Drag and drop list item to reorder the appareance of the canvases on top of each-other. The canvas with the checked radio-button is active and can be controlled (Map: zoom, pan, rotate, add landmarks or playground features; Drawing: draw, drag & drop images on canvas, etc).</span></div>
+											<label>Active Canvas (radio) and Order of the Canvases: </label>
+											<form id="formactive" name="formactive">
+											<ul class="active_list" id="canvases" name="ordercanvases"> 
+												<li><label for="orderDrawing"><input type="radio" id="orderDrawing" name="formactivechild" value="Free_Drawing_Canvas" onChange="setActiveCanvas(this)">
+													<img src="icons/pensula.svg" height="50" width="50" style="vertical-align:middle"/>
+													<span> Free Drawing</span></label></li>
+												<li><label for="orderFrame"><input type="radio" id="orderFrame" name="formactivechild" value="Frame_Canvas" onChange="setActiveCanvas(this)">
+													<img src="icons/rama.svg" height="50" width="50" style="vertical-align:middle"/>
+													<span> Frame</span></label></li>
+												<li><label for="orderMap"><input type="radio" id="orderMap" name="formactivechild" value="Map_Canvas" onChange="setActiveCanvas(this)" checked>
+													<img src="icons/glob_jumate_points.svg" height="50" width="50" style="vertical-align:middle"/>
+													<span> Map</span></label></li>
+											</ul>
+											</form>
+
+										</div>
+										
+									</div>
+									<!-- Geographic Map -->
+									<div id="mapLayersControls" att1="1_map_layers">
+										<!-- Map Layers -->
+										<button class="accordion alt">
+											<img src="icons/glob_jumate_points.svg" height="50" width="50" style="vertical-align:middle"/> <b>Map Layers</b>
+										</button>
+										<div class="accpanel">									
+												<button class="accordion alt iinfo">
+												</button>
+													<div class="accpanel iinfo"><span class="icon fa-info-circle"> Drag and drop layers for reordering on the Map. Add new layers by dragging them from the Available Layers list.</span> </div>
+											<div style="float:left;clear: left;">
+												<label for="editables"><img src="icons/glob_jumate_points.svg" height="50" width="50" style="vertical-align:middle"/> Displayed Layers: </label>
+												<ul class="active_list" id="editables">
+													<li>playground_V <i class="fa fa-remove js-remove"></i></li>
+													<li>geojsonPlaces_V <i class="fa fa-remove js-remove"></i></li>
+													<li>stamenWatercolorG_R <i class="fa fa-remove js-remove"></i></li>
+												</ul>
+											</div>
+											<div id="available_layers_list">
+												<label for="allLayers">Available Layers: </label>
+												<ul class="inactive_list" id="allLayers"> 
+													<li>geojsonPlaces_V</li>
+													<li>addLandmarks_V</li>
+													<li>playground_V</li>
+													<li>homesweethome_V</li>
+													<li>randompoints_V</li>
+													<li>clippedContinents_V</li>
+													<li>osm_clipped_R</li>
+													<li>clipped_now_R</li>
+													<li>stamenWatercolorG_R</li>
+													<li>stamenToner_R</li>
+													<!--<li>bing_aerial_R</li>-->
+												</ul>
+											</div>
+											<div>
+												<input name="addCanvas" id="addCanvas" class="button" type="submit" value="Add New Map Canvas" onclick="addCanvas()" >
+												<button class="accordion alt iinfo" >
+												</button>
+													<div class="accpanel iinfo"><span class="icon fa-info-circle"> The additional map canvas can be controlled separately, e.g. be set at a different zoom level, position and / or rotation (Alt+Shift+Drag to rotate) than the initial map canvas. Useful especially with map layers that can be cut / sliced, to produce a map collage. </span></div>
+												<br/>
+											</div>
+										</div>
+									</div>
+									<div id="mapLayersControls" att1="1_map_layers">
+										<button class="accordion alt">
+											<img src="icons/glob_jumate_points.svg" height="50" width="50" style="vertical-align:middle"/> <b>Map Features</b>
+										</button>
+										<div class="accpanel">
+											<!-- Add Landmark -->
+											Landmarks:
+											<a name="addLandmark" id="addLandmark" value="Add Landmark" onclick="addLandmark(this)" class="icon fa-plus-square"/></a> 
+											<br/>Playground features: 
+											<a name="addFeature" id="addFeature" value="Add Feature" onclick="addVector(this)" class="icon fa-plus-square" ></a>
+											<a name="modifyFeature" id="modifyFeature" value="Modify Feature" onclick="modifyVector(this)" class="icon fa-arrows-alt" ></a>
+											<a name="removeFeature" id="removeFeature"  value="Remove Feature" onclick="removeVector(this)" class="icon fa-minus-square" ></a>
+											<a name="draganddropFeatures" id="draganddropFeatures"  value="Drag and Drop vector File" onclick="allowDragDropVector(this)" class="icon fa-caret-square-o-down" ></a>
+											<span id="playgroundFeaturesInfo">The map canvas has to be active</span>
+											<label for="feature_type"> Element Type:
+												<select id="feature_type" name="feature_type" aria-activedescendant="feature_type" onchange="addVector()">
+													<option value="Point" aria-activedescendant="feature_type">Marker</option>
+													<option value="Circle" aria-activedescendant="feature_type">Influence (circular)</option>
+													<option value="LineString" aria-activedescendant="feature_type">Route (Freehand)</option>
+													<option value="LineString_p" aria-activedescendant="feature_type">Route (Ployline)</option>
+													<option value="Polygon" aria-activedescendant="feature_type">Area (Freehand)</option>
+													<option value="Polygon_p" aria-activedescendant="feature_type">Area (Polygon)</option>
+												</select>
+											</label>
+												<button class="accordion alt iinfo" >
+												</button>
+													<div class="accpanel iinfo">
+														<span class="icon fa-info-circle"> To add a landmark Map Canvas has to be active (change from menu item Sorting Canvases) and addLandmark_V layer added to the Map (in the Displayed Layers list). For this layer you can change the Marker icon, if you click on the icon displyed on this panel. <br/> The Add, Modify, Remove Feature buttons and the Element (feature) Type work on the layer playground_V, which has to be added to the Map.<br/>
+														With the button "Clip with Area" you can select an Area from the playground_V layer and clip an OSM layer with it. The result is the layer clipped_now_R and can be added to the map (or to the additional map) for creating interesting effects (e.g. a bigger island).</span><br/>
+													Landmark icon: <span id="addLandmark_icon"><img id="landmarkIcon" src="icons/picior.svg" style="vertical-align:middle" onclick="changeLandmarkIcon(this)"/></span><br/>
+													</div>
+												<input name="clipWith" id="clipWith" class="button" type="submit" value="Clip With Area" onclick="clipRasterWithSelectedArea(this)"/>
+											
+										</div>
+									</div>	
+										
+										
+									<!-- Free Drawing -->
+									<div id="2_free_drawing">
+										<button class="accordion alt">
+											<img src="icons/pensula.svg" height="50" width="50" style="vertical-align:middle"/> <b>Drawing</b>
+										</button>
+										<div class="accpanel">
+											<label >Brush:
+												<a id="undo" title="Undo" class="icon fa-rotate-left"><span class="label">Undo</span></a>
+												<a id="redo" title="Redo" class="icon fa-rotate-right"><span class="label">Redo</span></a>
+												&nbsp&nbsp&nbsp Canvas:
+												<a id="clear" title="Clear Canvas" class="icon fa-trash"><span class="label">Clear Canvas</span></a>
+												<a id="greyscale" title="Greyscale" class="icon fa-adjust"><span class="label">Greyscale</span></a>
+											</label>
+											<label for="load_brush"> Brush Type:
+												<select id="load_brush" name="load_brush" aria-activedescendant="load_brush" class="icon-menu">
+													<option value="simple" dataSrc="brushes/pattern_small.png" aria-activedescendant="load_brush">Simple Pencil</option>
+													<option value="drawPixels" dataSrc="brushes/pattern_small.png" aria-activedescendant="load_brush">Colorful Pixels</option>
+													<option value="harmony" dataSrc="brushes/pattern_small.png" aria-activedescendant="load_brush">Harmony Brush</option>
+													<option value="pattern" dataSrc="brushes/pattern_small.png" aria-activedescendant="load_brush">Dot Pattern</option>
+													<option value="drawStar" dataSrc="brushes/pattern_small.png" aria-activedescendant="load_brush">Random Stars</option>
+													<option value="eraser" dataSrc="brushes/pattern_small.png" aria-activedescendant="load_brush">Eraser</option>
+												</select>
+											</label>
+											<label for="html5colorpicker">Brush Color:
+												<input type="color" id="html5colorpicker" onchange="refreshCircle()" value="#FF0000" style="vertical-align:middle">
+												<svg  width="50" height="50" style="vertical-align:middle">
+													<circle id="svgcircle" cx="25" cy="25" r="2.5" fill="red" />
+												</svg>
+											</label>
+											<label for="html5lineWidth">Line Width:
+												<input type="range" id="html5lineWidth" onchange="refreshCircle()" value="5" min="1" max="50" style="vertical-align:middle">
+												
+											</label>
+											<!--<input name="clear" id="clear" class="button" type="submit" value="Erase canvas">
+											<input name="greyscale" id="greyscale" class="button" type="submit" value="Greyscale">-->
+										</div>
+									</div>
+									<!-- Frame -->
+									<div id="3_frame">
+										<button class="accordion alt">
+											<img src="icons/rama.svg" height="50" width="50" style="vertical-align:middle"/> <b>Frame</b>
+										</button>
+										<div class="accpanel">
+											<label for="load_frame">Load Predefined Frame:
+													<select id="load_frame" name="load_frame" aria-activedescendant="load_frame" >
+														<option value="none" aria-activedescendant="load_frame">None</option>
+														<option value="simple" aria-activedescendant="load_frame">Simple Digital Frame</option>
+														<option value="spyglass" aria-activedescendant="load_frame">Spyglass</option>
+														<option value="spiky" aria-activedescendant="load_frame">Spiky</option>
+														<option value="anger" aria-activedescendant="load_frame">Anger Pixar inspired</option>
+														<option value="disgust" aria-activedescendant="load_frame">Disgust Pixar inspired</option>
+														<option value="excitement" aria-activedescendant="load_frame">Excitement Pixar inspired</option>
+														<option value="fear" aria-activedescendant="load_frame">Fear Pixar inspired</option>
+														<option value="joy" aria-activedescendant="load_frame">Joy Pixar inspired</option>
+														<option value="sad" aria-activedescendant="load_frame">Sad Pixar inspired</option>
+														<option value="star" aria-activedescendant="load_frame">Star</option>
+														<option value="cloud" aria-activedescendant="load_frame">Cloud</option>
+														<option value="mickeymouse" aria-activedescendant="load_frame">Mickey Mouse</option>
+														<option value="old_film" aria-activedescendant="load_frame">Old Film Frame</option>
+														<option value="gold" aria-activedescendant="load_frame">Golden Frame</option>
+														
+														
+														
+													</select>
+											</label>
+										</div>
+									</div>
+									
+
+								</div>
+							</div>
+						</div>
+						
+					<!-- Footer -->
+						<footer id="footer">
+							<div class="copyright">
+								&copy; 2019-2021 Cristina M. Iosifescu Enescu, Zurich. All rights reserved. Design based on: <a href="https://templated.co/">TEMPLATED</a>.
+							</div>
+						</footer>
+				</section>
+		</div>
+
+		<!-- Scripts -->
+	<script>
+
+	
+	document.getElementById("dreamReport").innerHTML= "dream a sweet little dream in a small secret world";
+	document.getElementById("dreamtitle").innerHTML= "the dream example" + "<br/>";
+	
+	//document.getElementById("givenlocations").innerHTML="pai aici ar trebui sa fie... " + window.sessionStorage.getItem("checkedLocations");
+	</script>
+		
+		
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
